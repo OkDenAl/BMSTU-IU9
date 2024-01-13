@@ -1,0 +1,10 @@
+S -> NP VP
+S -> S PP
+S -> S and S
+NP -> n
+NP -> det n
+NP -> NP PP
+NP -> NP and NP
+VP -> v NP
+VP -> v S  
+PP -> p NP

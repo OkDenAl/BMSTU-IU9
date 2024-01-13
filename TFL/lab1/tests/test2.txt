@@ -1,0 +1,4 @@
+abcd -> a
+abcd -> b
+abcd -> c
+abcd -> d
