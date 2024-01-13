@@ -1,0 +1,7 @@
+; lab4
+[AddReg]
+HKLM,"SYSTEM\CurrentControlSet\Services\lab4","ErrorControl",0x00010001,0x00000000
+HKLM,"SYSTEM\CurrentControlSet\Services\lab4","Group",0x00000000,"Base"
+HKLM,"SYSTEM\CurrentControlSet\Services\lab4","ImagePath",0x00020000,"system32\drivers\lab4.sys"
+HKLM,"SYSTEM\CurrentControlSet\Services\lab4","Start",0x00000001,0x00000003
+HKLM,"SYSTEM\CurrentControlSet\Services\lab4","Type",0x00010001,0x00000001
