@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="#">
+    <script>
+        window.addEventListener("load", function(event) {
+            let outputFTP = document.getElementById("output-ftp");
+            let outputSSH = document.getElementById("output-ssh");
+            let outputTrace = document.getElementById("output-trace");
+
+            let wsFTP = new WebSocket("ws://151.248.113.144:8481/ftp");
+            let wsSSH = new WebSocket("ws://151.248.113.144:8482/ssh");
+            let wsTrace = new WebSocket("ws://localhost:8383/trace");
+
+            wsFTP.onmessage = function(event) {
+                let obj = JSON.parse(event.data);
+                console.log("ftp", obj);
+
+                outputFTP.innerHTML = "";
+
+                if (!obj.err) {
+                    let p = document.createElement("p");
+                    p.innerText = obj.out;
+                    p.style = "font-size: 14px;";
+
+                    outputFTP.appendChild(p);
+                } else {
+                    let b = document.createElement("b");
+                    b.innerText = "norm";
+                    b.style = "font-size: 18px; align-self: center;";
+
+                    outputFTP.appendChild(b);
+                }
+            };
+
+            wsSSH.onmessage = function(event) {
+                let obj = JSON.parse(event.data);
+                console.log("ssh", obj);
+
+                outputSSH.innerHTML = "";
+
+                if (!obj.err) {
+                    let p = document.createElement("p");
+                    p.innerText = obj.out;
+                    p.style = "font-size: 14px;";
+
+                    outputSSH.appendChild(p);
+                } else {
+                    let b = document.createElement("b");
+                    b.innerText = "norm";
+                    b.style = "font-size: 18px; align-self: center;";
+
+                    outputSSH.appendChild(b);
+                }
+            }
+
+            wsTrace.onmessage = function(event) {
+                let obj = JSON.parse(event.data);
+                console.log("trace", obj);
+
+                let b = document.createElement("b");
+                b.innerText = obj.status;
+                b.style = "font-size: 18px; align-self: center;";
+
+                outputTrace.innerHTML = "";
+                outputTrace.appendChild(b);
+            }
+        });
+    </script>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            background-color: #F7F7F7;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .output {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            background-color: #FFFFFF;
+            border: solid 2px #E7E7E7;
+            overflow: scroll;
+        }
+
+        .span {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="dashboard">
+        <span class="span">Мониторингr директории ftp-сервера </span>
+        <div class="output" id="output-ftp"></div>
+    </div>
+    <div class="dashboard">
+        <span class="span">Мониторинг директории ssh-сервера</span>
+        <div class="output" id="output-ssh"></div>
+    </div>
+    <div class="dashboard">
+        <span class="span">Статус трасировки до сайта <a href="http://yss.su/">yss.su</a></span>
+        <div class="output" id="output-trace"></div>
+    </div>
+</div>
+</body>
+</html>

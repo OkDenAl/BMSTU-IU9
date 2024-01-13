@@ -1,0 +1,24 @@
+version: "3"
+
+volumes:
+  database-volume:
+
+services:
+  postgres:
+    build:
+      context: ./Docker
+      dockerfile: db.Dockerfile
+    restart: always
+    image: postgres
+    environment:
+      - 'POSTGRES_PASSWORD=asdwasd4545'
+    ports:
+      - "5432:5432"
+    volumes:
+      - database-volume:/var/lib/postgresql/data
+  server:
+    build: ./
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres

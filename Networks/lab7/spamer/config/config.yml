@@ -1,0 +1,5 @@
+db_user: iu9networkslabs
+db_password: Je2dTYr6
+db_host: students.yss.su
+db_name: iu9networkslabs
+is_debug: true

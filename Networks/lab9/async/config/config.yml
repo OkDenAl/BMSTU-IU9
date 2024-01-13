@@ -1,0 +1,13 @@
+server:
+  host: localhost
+  port: 8080
+
+database:
+  host: localhost
+  port: 5432
+  user: postgres
+  name: microservice
+  password: asdwasd4545
+  ssl_mode: disable
+
+isDebug: true

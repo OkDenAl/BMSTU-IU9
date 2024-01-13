@@ -1,0 +1,11 @@
+version: "3"
+
+volumes:
+  lab8:
+services:
+  server:
+    build: ./
+    ports:
+      - 8080:8080
+    volumes:
+      - lab8:/lab8/ftpServer/storage/

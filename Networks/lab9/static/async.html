@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" content="windws-1251">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <link rel="stylesheet" href="static/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+<form id="message-form">
+  <div id="status">Successfully Authorized !</div><br><br>
+
+  <label for="input">Write your text</label>
+  <input type="text" id="input">
+  <button type="submit">Submit</button>
+  <br><br><br>
+  <p id="messages"></p>
+</form>
+</body>
+<script>
+  var form = document.getElementById('message-form');
+  var messageField = document.getElementById('input');
+  var messagesList = document.getElementById('messages');
+  var socketStatus = document.getElementById('status');
+  var socket = new WebSocket("ws://localhost:8080/async");
+
+  form.onsubmit = function(e) {
+    e.preventDefault();
+    var message = messageField.value;
+    socket.send(message);
+    messagesList.innerHTML += '<liclass="sent"><span>Sent: </span>' + message + '</li><br>';
+    messageField.value = '';
+    return false;
+  };
+
+  socket.onmessage = function (e) {
+    messagesList.innerHTML += '<liclass="received"><span>Received: </span>' + e.data+'</li><br>';
+  };
+
+  function send() {
+    socket.send(messageField.value);
+    messageField.value = "";
+  }
+</script>
+</html>

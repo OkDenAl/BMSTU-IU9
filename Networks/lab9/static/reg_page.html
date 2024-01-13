@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="static/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+<form id="reg_form" method="post">
+    <p align="center">Registration form</p>
+    <label for="mail">Email</label>
+    <input type="email" id="mail" name="email">
+    <label>Password</label>
+    <input type="password" id="pass" name="password">
+    <button type="submit">Register</button>
+</form>
+
+<form id="login_form" method="post">
+    <p align="center">Login form</p>
+    <label for="mail">Email</label>
+    <input type="email" id="loginEmail" name="email">
+    <label>Password</label>
+    <input type="password" id="loginPassword" name="password">
+    <button type="submit">Login</button>
+</form>
+<script>
+    var loginForm=document.getElementById("login_form")
+    loginForm.addEventListener("submit",(e)=>{
+        e.preventDefault()
+        const formData=new FormData(loginForm)
+        fetch("http://localhost:8080/auth/login",{
+            method: "POST",
+            body: formData,
+        }).then(
+            response => response.text()
+        ).then(
+            (data) => {
+                console.log(data)
+                const obj = JSON.parse(data)
+                const accessToken = obj["tokens"]["accessToken"]
+                const userId = obj["user"]["userId"]
+                console.log(accessToken)
+                console.log(userId)
+                fetch("http://localhost:8080/message/"+userId,{
+                    method: "GET",
+                    headers: {
+                        Authorization: "Bearer "+ accessToken
+                    }
+                }).then(
+                    response => response.text()
+                ).then(
+                    (data)=> {
+                        console.log(data)
+                        document.body.innerHTML=data
+
+                        var form = document.getElementById('message-form');
+                        var messageField = document.getElementById('input');
+                        var messagesList = document.getElementById('messages');
+                        var socket = new WebSocket("ws://localhost:8080/async");
+
+                        socket.onopen = function(event) {
+                            socketStatus.innerHTML = 'Connected to: ' + event.currentTarget.url;
+                            socketStatus.className = 'open';
+                        };
+                        socket.onerror = function (error) {
+                            console.log('WebSocket Error ' + error);
+                            messagesList.innerHTML += "<tr><td>Failed to connect to Server.</td></tr>"
+                        };
+
+                        form.onsubmit = function(e) {
+                            e.preventDefault();
+                            var message = messageField.value;
+                            socket.send(message);
+                            messagesList.innerHTML += '<liclass="sent"><span>Sent: </span>' + message + '</li><br>';
+                            messageField.value = '';
+                            return false;
+                        };
+
+                        socket.onmessage = function (e) {
+                            const parsed = JSON.parse(e.data)
+                            const answer = parsed["text"]
+                            messagesList.innerHTML += '<liclass="received"><span>Received: </span>' + answer+'</li><br>';
+                        };
+
+                        function send() {
+                            socket.send(messageField.value);
+                            messageField.value = "";
+                        }
+                    }
+                )
+            }
+        )
+    })
+
+    var regForm=document.getElementById("reg_form")
+    regForm.addEventListener("submit",(e)=>{
+        e.preventDefault()
+        const formData=new FormData(regForm)
+        fetch("http://localhost:8080/auth/register",{
+            method: "POST",
+            body: formData,
+        }).then(
+            response => response.text()
+        ).then(
+            (data) => {
+                console.log(data)
+                const obj = JSON.parse(data)
+                const accessToken = obj["tokens"]["accessToken"]
+                const userId = obj["user"]["userId"]
+                console.log(accessToken)
+                console.log(userId)
+                fetch("http://localhost:8080/message/"+userId,{
+                    method: "GET",
+                    headers: {
+                        Authorization: "Bearer "+ accessToken
+                    }
+                }).then(
+                    response => response.text()
+                ).then(
+                    (data)=> {
+                        console.log(data)
+                        document.body.innerHTML=data
+
+                        var form = document.getElementById('message-form');
+                        var messageField = document.getElementById('input');
+                        var messagesList = document.getElementById('messages');
+                        var socket = new WebSocket("ws://localhost:8080/async");
+
+                        socket.onopen = function(event) {
+                            socketStatus.innerHTML = 'Connected to: ' + event.currentTarget.url;
+                            socketStatus.className = 'open';
+                        };
+                        socket.onerror = function (error) {
+                            console.log('WebSocket Error ' + error);
+                            messagesList.innerHTML += "<tr><td>Failed to connect to Server.</td></tr>"
+                        };
+
+                        form.onsubmit = function(e) {
+                            e.preventDefault();
+                            var message = messageField.value;
+                            socket.send(message);
+                            messagesList.innerHTML += '<liclass="sent"><span>Sent: </span>' + message + '</li><br>';
+                            messageField.value = '';
+                            return false;
+                        };
+
+                        socket.onmessage = function (e) {
+                            const parsed = JSON.parse(e.data)
+                            const answer = parsed["text"]
+                            messagesList.innerHTML += '<liclass="received"><span>Received: </span>' + answer+'</li><br>';
+                        };
+
+                        function send() {
+                            socket.send(messageField.value);
+                            messageField.value = "";
+                        }
+                    }
+                )
+            }
+        )
+    })
+</script>
+
+</body>
+</html>
