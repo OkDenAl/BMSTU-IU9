@@ -1,0 +1,3 @@
+\\ comma^%
+& test goto
+ \ \(gosub\)
