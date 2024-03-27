@@ -1,0 +1,4 @@
+# ninja log v5
+81	128	1710430131138873241	lab6_compilers	5cef1f1494e1dce3
+3	80	1710430131090797935	CMakeFiles/lab6_compilers.dir/main.c.o	f96e7821184eeaf7
+0	71	1710925535220642256	build.ninja	f24cf3003fcc6b44
