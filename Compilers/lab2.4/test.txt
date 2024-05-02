@@ -1,0 +1,32 @@
+(<int> [SumVectors (<<int>> !A) (<int> !B)])
+    (int #size) := [length !A],
+    \ #size _eq_ [length !B],
+    (<int> #C) := new_ <int> 10f{10},
+    #x := #a*2 + 10,
+    #x := #a*(2 + 10),
+    #x := #a _pow_ 2 _pow_ 10,
+    <!A 5> := <#B 6> * 10,
+    <[Func #x #y] !i+1> := 0,
+    (<int> #P) := new_ <int> 10,
+    (<int> #i : 0, #size - 1)
+        <#C #i> := <!A #i> + <!B #i>
+        { <#C 5> := <!A #i> + <!B #i> }
+    %,
+    (?#a _lt_ 0)
+        #sign := -1
+    ++
+        (?#a _eq_ 0)
+            #sign := 0
+        ++
+            #sign :=1
+        %
+    %,
+    ^ #C
+%%
+
+
+(<int> [SumVectors (<<int>> !A) (<int> !B)])
+   (int @a) := 'я русский',
+   @a := <<!A 1> 2>,
+    ^ #C
+%%
