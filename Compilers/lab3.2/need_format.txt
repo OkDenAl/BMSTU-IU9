@@ -1,0 +1,33 @@
+(<int>
+[SumVectors
+(int !A)(char !B)(int !B)
+]
+){ another comma}
+(int #C) :=new_ int #size,
+#x := #a * 2 + 10,
+#x := #a * (2 + 10), { good job } #x := #a _pow_ 2 _pow_ 10,
+#x := #a _pow_ 2 _pow_ 10,
+<!A 5> := <#B 6> * 10,
+<[Func #x #y] !i + 1> := 0,
+(<int>#P) :=   new_ <int> 10,
+                            (&#a _lt_ 0)#a := -1%,
+(<int> #i : 0, #size - 1)
+<#C #i> := <!A#i>+ <!B #i>
+{ <#C 5> := <!A #i> + <!B #i> }
+%,
+(? #a _lt_ 0)
+#sign := -1
++++
+(? #a _eq_ 0)
+#sign := 0
++++
+#sign := 1
+%
+%,
+^ #C
+%%
+(<int> [Main (<<int>> !A) (<int> !B)])
+(int @a) := 'i like books',
+@a := <<!A 1> 2>,
+^ #C
+%%
