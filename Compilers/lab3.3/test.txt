@@ -1,0 +1,27 @@
+(<int> [SumVectors (<<int>> !A) (<int> !B)])
+    (int #size) := <<!A 1> 2>,
+    #size := "a",
+    (<char> #I) := 'ya constanta',
+    \ #size _eq_ <!B 1>,
+    \ nothing _eq_ !B,
+    (<int> #C) := new_ <int> 10f{10},
+    #C := nothing,
+    (int #x),(int #a),
+    #x := #a*2 + 10,
+    #x := #a*(2 + 10),
+    #x := #a _pow_ 2 _pow_ 10,
+    <<!A 5> #size> := <!B 6> * 10,
+    #C := [SumVectors !A #C],
+    (<int> #P) := new_ <int> 10,
+    (int #i : 0, #size - 1)
+        <#C #i> := <<!A #i> #i> + <!B #i>
+        { <#C 5> := <!A #i> + <!B #i> }
+    %,
+    (int #i),
+    ^ #C
+%%
+
+
+(<int> [Main (<<int>> !A) (<int> !B)])
+    ^ !B
+%%
