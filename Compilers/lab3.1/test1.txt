@@ -1,0 +1,32 @@
+$AXIOM PROG
+$NTERM DECLS DECL AXIOM NTERM TERM NON_TERMS TERMS RULES INNER_RULES RULE BODY ALTS ALT SYMBOLS
+$TERM "NL" "KW_AXIOM" "KW_NTERM" "KW_TERM" "KW_RULE" "NonTerm" "Term" "KW_EQ" "KW_EPS"
+
+$RULE PROG = DECLS RULES
+$RULE DECLS = DECL DECLS
+              $EPS
+$RULE DECL = AXIOM "NL"
+             NTERM "NL"
+             TERM "NL"
+             "NL"
+$RULE AXIOM = "KW_AXIOM" "NonTerm"
+$RULE NTERM = "KW_NTERM" "NonTerm" NON_TERMS
+$RULE TERM = "KW_TERM" "Term" TERMS
+$RULE NON_TERMS = "NonTerm" NON_TERMS
+                  $EPS
+$RULE TERMS = "Term" TERMS
+              $EPS
+$RULE RULES = RULE INNER_RULES
+$RULE INNER_RULES = "NL" INNER_RULES
+                    RULE INNER_RULES
+                    $EPS
+$RULE RULE = "KW_RULE" "NonTerm" "KW_EQ" BODY
+$RULE BODY = ALT ALTS
+$RULE ALTS = ALT ALTS
+             $EPS
+$RULE ALT  = "KW_EPS" "NL"
+             "NonTerm" SYMBOLS "NL"
+             "Term" SYMBOLS "NL"
+$RULE SYMBOLS = "NonTerm" SYMBOLS
+                "Term" SYMBOLS
+                $EPS

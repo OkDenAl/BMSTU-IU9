@@ -1,0 +1,12 @@
+$AXIOM E
+$NTERM E' T T' F
+$TERM  "+"  "*"  "("  ")"  "n"
+
+$RULE  E  = T E'
+$RULE  E' = "+" T E'
+            $EPS
+$RULE  T  = F T'
+$RULE  T' = "*" F T'
+            $EPS
+$RULE  F  = "n"
+            "(" E ")"
