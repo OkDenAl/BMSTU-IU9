@@ -1,0 +1,11 @@
+a = 2
+while (a) do
+    a = a - 1
+end
+b = 3
+if (a) then
+    b = 4
+else
+    b = a + 5
+a = a * 2
+d = b
