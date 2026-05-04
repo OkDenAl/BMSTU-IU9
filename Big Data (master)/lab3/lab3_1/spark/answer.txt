@@ -1,0 +1,72 @@
+/opt/spark/bin/spark-submit   --master spark://spark-master:7077  /data/spark/app.py
+
+Топ 10 URL
+/images/NASA-logosmall.gif: 97275 запросов
+/images/KSC-logosmall.gif: 75283 запросов
+/images/MOSAIC-logosmall.gif: 67356 запросов
+/images/USA-logosmall.gif: 66975 запросов
+/images/WORLD-logosmall.gif: 66351 запросов
+/images/ksclogo-medium.gif: 62670 запросов
+/ksc.html: 43618 запросов
+/history/apollo/images/apollo-logo1.gif: 37806 запросов
+/images/launch-logo.gif: 35119 запросов
+/: 30104 запросов
+
+Распределение по кодам ответа:
+URL: /images/NASA-logosmall.gif
+        Статус 200: 78203 запросов (80.39%)
+        Статус 304: 19072 запросов (19.61%)
+URL: /images/KSC-logosmall.gif
+        Статус 200: 63955 запросов (84.95%)
+        Статус 304: 11328 запросов (15.05%)
+URL: /images/MOSAIC-logosmall.gif
+        Статус 200: 58739 запросов (87.21%)
+        Статус 304: 8617 запросов (12.79%)
+URL: /images/USA-logosmall.gif
+        Статус 200: 58410 запросов (87.21%)
+        Статус 304: 8565 запросов (12.79%)
+URL: /images/WORLD-logosmall.gif
+        Статус 200: 57991 запросов (87.40%)
+        Статус 304: 8360 запросов (12.60%)
+URL: /images/ksclogo-medium.gif
+        Статус 200: 54948 запросов (87.68%)
+        Статус 304: 7722 запросов (12.32%)
+URL: /ksc.html
+        Статус 200: 41327 запросов (94.75%)
+        Статус 304: 2280 запросов (5.23%)
+        Статус 501: 11 запросов (0.03%)
+URL: /history/apollo/images/apollo-logo1.gif
+        Статус 200: 33451 запросов (88.48%)
+        Статус 304: 4355 запросов (11.52%)
+URL: /images/launch-logo.gif
+        Статус 200: 30941 запросов (88.10%)
+        Статус 304: 4178 запросов (11.90%)
+URL: /
+        Статус 200: 26499 запросов (88.02%)
+        Статус 304: 3605 запросов (11.98%)
+
+Аномалии по датам:
+URL: /images/NASA-logosmall.gif
+        Аномально много запросов:
+                30/Aug/1995: 6388
+                31/Aug/1995: 8360
+URL: /images/KSC-logosmall.gif
+        Аномально много запросов:
+                31/Aug/1995: 4053
+URL: /images/MOSAIC-logosmall.gif
+        Нет аномальных дней
+URL: /images/USA-logosmall.gif
+        Нет аномальных дней
+URL: /images/WORLD-logosmall.gif
+        Нет аномальных дней
+URL: /images/ksclogo-medium.gif
+        Нет аномальных дней
+URL: /ksc.html
+        Нет аномальных дней
+URL: /history/apollo/images/apollo-logo1.gif
+        Нет аномальных дней
+URL: /images/launch-logo.gif
+        Нет аномальных дней
+URL: /
+        Аномально много запросов:
+                31/Aug/1995: 1564

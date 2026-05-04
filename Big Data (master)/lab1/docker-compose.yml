@@ -1,0 +1,80 @@
+version: '3.8'
+
+networks:
+  mongo-compose-network:
+    driver: bridge
+
+services:
+  mongo1:
+    container_name: mongo1
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - ./keyfile:/opt/keyfile:ro
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 3s
+      start_period: 10s
+      retries: 3
+    networks:
+      - mongo-compose-network
+    command: --replSet=rs0 --keyFile=/opt/keyfile/mongo.key --bind_ip_all
+
+  mongo2:
+    container_name: mongo2
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - ./keyfile:/opt/keyfile:ro
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 3s
+      start_period: 10s
+      retries: 3
+    networks:
+      - mongo-compose-network
+    command: --replSet=rs0 --keyFile=/opt/keyfile/mongo.key --bind_ip_all
+
+  mongo3:
+    container_name: mongo3
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27019:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - ./keyfile:/opt/keyfile:ro
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 3s
+      start_period: 10s
+      retries: 3
+    networks:
+      - mongo-compose-network
+    command: --replSet=rs0 --keyFile=/opt/keyfile/mongo.key --bind_ip_all
+
+  app:
+    image: golang:1.23-alpine
+    container_name: mongo-app
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "go mod download && CGO_ENABLED=0 GOOS=linux go build -o bigdatalab . && ./bigdatalab"
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    networks:
+      - mongo-compose-network

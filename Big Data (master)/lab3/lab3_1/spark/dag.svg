@@ -1,0 +1,293 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="456pt" height="1038pt" viewBox="0.00 0.00 456.00 1038.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1034.2)">
+<title>SparkDAG</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1034.2 452.03,-1034.2 452.03,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_stage1</title>
+<polygon fill="lightgrey" stroke="black" points="108,-799.4 108,-1022.2 237,-1022.2 237,-799.4 108,-799.4"/>
+<text xml:space="preserve" text-anchor="middle" x="172.5" y="-1005.6" font-family="Times,serif" font-size="14.00">Stage 1 (No shuffle)</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_stage2</title>
+<polygon fill="lightgrey" stroke="black" points="151,-541.8 151,-764.6 277,-764.6 277,-541.8 151,-541.8"/>
+<text xml:space="preserve" text-anchor="middle" x="214" y="-748" font-family="Times,serif" font-size="14.00">Stage 2 (Shuffle 1)</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_stage3</title>
+<polygon fill="lightgrey" stroke="black" points="35,-8 35,-522.8 199,-522.8 199,-8 35,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="117" y="-506.2" font-family="Times,serif" font-size="14.00">Stage 3 (Shuffle 2)</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_stage4</title>
+<polygon fill="lightgrey" stroke="black" points="207,-8 207,-522.8 409,-522.8 409,-8 207,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="308" y="-506.2" font-family="Times,serif" font-size="14.00">Stage 4 (Shuffle 3)</text>
+</g>
+<!-- textFile -->
+<g id="node1" class="node">
+<title>textFile</title>
+<polygon fill="lightblue" stroke="black" points="201.39,-989.4 142.61,-989.4 142.61,-953.4 201.39,-953.4 201.39,-989.4"/>
+<text xml:space="preserve" text-anchor="middle" x="172" y="-967.2" font-family="Times,serif" font-size="14.00">textFile</text>
+</g>
+<!-- parseMap -->
+<g id="node2" class="node">
+<title>parseMap</title>
+<polygon fill="lightblue" stroke="black" points="211.48,-916.4 132.52,-916.4 132.52,-880.4 211.48,-880.4 211.48,-916.4"/>
+<text xml:space="preserve" text-anchor="middle" x="172" y="-894.2" font-family="Times,serif" font-size="14.00">map(parse)</text>
+</g>
+<!-- textFile&#45;&gt;parseMap -->
+<g id="edge1" class="edge">
+<title>textFile-&gt;parseMap</title>
+<path fill="none" stroke="black" d="M172,-953.21C172,-945.63 172,-936.5 172,-927.94"/>
+<polygon fill="black" stroke="black" points="175.5,-927.94 172,-917.94 168.5,-927.94 175.5,-927.94"/>
+</g>
+<!-- filterNonNull -->
+<g id="node3" class="node">
+<title>filterNonNull</title>
+<polygon fill="lightblue" stroke="black" points="224.12,-843.4 119.88,-843.4 119.88,-807.4 224.12,-807.4 224.12,-843.4"/>
+<text xml:space="preserve" text-anchor="middle" x="172" y="-821.2" font-family="Times,serif" font-size="14.00">filter(not None)</text>
+</g>
+<!-- parseMap&#45;&gt;filterNonNull -->
+<g id="edge2" class="edge">
+<title>parseMap-&gt;filterNonNull</title>
+<path fill="none" stroke="black" d="M172,-880.21C172,-872.63 172,-863.5 172,-854.94"/>
+<polygon fill="black" stroke="black" points="175.5,-854.94 172,-844.94 168.5,-854.94 175.5,-854.94"/>
+</g>
+<!-- mapURL -->
+<g id="node4" class="node">
+<title>mapURL</title>
+<polygon fill="lightblue" stroke="black" points="237.49,-731.8 158.51,-731.8 158.51,-695.8 237.49,-695.8 237.49,-731.8"/>
+<text xml:space="preserve" text-anchor="middle" x="198" y="-709.6" font-family="Times,serif" font-size="14.00">map(url, 1)</text>
+</g>
+<!-- filterNonNull&#45;&gt;mapURL -->
+<g id="edge3" class="edge">
+<title>filterNonNull-&gt;mapURL</title>
+<path fill="none" stroke="black" d="M169.07,-806.92C167.92,-796.78 167.42,-783.83 170,-772.6 172.39,-762.18 176.92,-751.45 181.65,-742.11"/>
+<polygon fill="black" stroke="black" points="184.59,-744.04 186.25,-733.58 178.43,-740.72 184.59,-744.04"/>
+</g>
+<!-- filterNonNull&#45;&gt;mapURL -->
+<g id="edge20" class="edge">
+<title>filterNonNull-&gt;mapURL</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M176.06,-807.27C180.12,-790.16 186.43,-763.55 191.25,-743.26"/>
+<polygon fill="black" stroke="black" points="194.63,-744.18 193.53,-733.64 187.82,-742.56 194.63,-744.18"/>
+<text xml:space="preserve" text-anchor="middle" x="231.85" y="-776.8" font-family="Times,serif" font-size="14.00">shuffle boundary</text>
+</g>
+<!-- filterTop -->
+<g id="node7" class="node">
+<title>filterTop</title>
+<polygon fill="lightblue" stroke="black" points="188.76,-490 73.24,-490 73.24,-454 188.76,-454 188.76,-490"/>
+<text xml:space="preserve" text-anchor="middle" x="131" y="-467.8" font-family="Times,serif" font-size="14.00">filter(top_url_set)</text>
+</g>
+<!-- filterNonNull&#45;&gt;filterTop -->
+<g id="edge6" class="edge">
+<title>filterNonNull-&gt;filterTop</title>
+<path fill="none" stroke="black" d="M161.01,-806.93C148.87,-785.9 131,-749.13 131,-714.8 131,-714.8 131,-714.8 131,-566.8 131,-545 131,-520.34 131,-501.78"/>
+<polygon fill="black" stroke="black" points="134.5,-501.8 131,-491.8 127.5,-501.8 134.5,-501.8"/>
+</g>
+<!-- filterNonNull&#45;&gt;filterTop -->
+<g id="edge21" class="edge">
+<title>filterNonNull-&gt;filterTop</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M119.46,-814.12C68.88,-800.81 0,-772.16 0,-714.8 0,-714.8 0,-714.8 0,-566.8 0,-532.09 30.77,-509 62.49,-494.41"/>
+<polygon fill="black" stroke="black" points="63.59,-497.74 71.39,-490.56 60.82,-491.31 63.59,-497.74"/>
+<text xml:space="preserve" text-anchor="middle" x="51.52" y="-636.6" font-family="Times,serif" font-size="14.00">broadcast top_urls</text>
+</g>
+<!-- filterTop2 -->
+<g id="node14" class="node">
+<title>filterTop2</title>
+<polygon fill="lightblue" stroke="black" points="363.76,-490 248.24,-490 248.24,-454 363.76,-454 363.76,-490"/>
+<text xml:space="preserve" text-anchor="middle" x="306" y="-467.8" font-family="Times,serif" font-size="14.00">filter(top_url_set)</text>
+</g>
+<!-- filterNonNull&#45;&gt;filterTop2 -->
+<g id="edge13" class="edge">
+<title>filterNonNull-&gt;filterTop2</title>
+<path fill="none" stroke="black" d="M224.53,-819.27C245.44,-814.61 268.04,-805.84 283,-789.4 305.82,-764.32 299,-748.71 299,-714.8 299,-714.8 299,-714.8 299,-566.8 299,-544.83 300.93,-520.05 302.77,-501.48"/>
+<polygon fill="black" stroke="black" points="306.22,-502.07 303.78,-491.76 299.26,-501.35 306.22,-502.07"/>
+</g>
+<!-- filterNonNull&#45;&gt;filterTop2 -->
+<g id="edge22" class="edge">
+<title>filterNonNull-&gt;filterTop2</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M224.41,-819.97C250.24,-815.56 280.58,-806.78 303,-789.4 333.07,-766.08 345,-752.85 345,-714.8 345,-714.8 345,-714.8 345,-566.8 345,-543.06 334.22,-518.36 324,-500.27"/>
+<polygon fill="black" stroke="black" points="327.03,-498.53 318.9,-491.73 321.02,-502.11 327.03,-498.53"/>
+<text xml:space="preserve" text-anchor="middle" x="396.52" y="-636.6" font-family="Times,serif" font-size="14.00">broadcast top_urls</text>
+</g>
+<!-- reduceByKeyURL -->
+<g id="node5" class="node">
+<title>reduceByKeyURL</title>
+<polygon fill="lightblue" stroke="black" points="269.09,-658.8 158.91,-658.8 158.91,-622.8 269.09,-622.8 269.09,-658.8"/>
+<text xml:space="preserve" text-anchor="middle" x="214" y="-636.6" font-family="Times,serif" font-size="14.00">reduceByKey(+)</text>
+</g>
+<!-- mapURL&#45;&gt;reduceByKeyURL -->
+<g id="edge4" class="edge">
+<title>mapURL-&gt;reduceByKeyURL</title>
+<path fill="none" stroke="black" d="M201.87,-695.61C203.6,-687.94 205.69,-678.69 207.64,-670.04"/>
+<polygon fill="black" stroke="black" points="211.05,-670.83 209.83,-660.31 204.22,-669.29 211.05,-670.83"/>
+</g>
+<!-- takeOrdered -->
+<g id="node6" class="node">
+<title>takeOrdered</title>
+<polygon fill="lightblue" stroke="black" points="268.25,-585.8 159.75,-585.8 159.75,-549.8 268.25,-549.8 268.25,-585.8"/>
+<text xml:space="preserve" text-anchor="middle" x="214" y="-563.6" font-family="Times,serif" font-size="14.00">takeOrdered(10)</text>
+</g>
+<!-- reduceByKeyURL&#45;&gt;takeOrdered -->
+<g id="edge5" class="edge">
+<title>reduceByKeyURL-&gt;takeOrdered</title>
+<path fill="none" stroke="black" d="M214,-622.61C214,-615.03 214,-605.9 214,-597.34"/>
+<polygon fill="black" stroke="black" points="217.5,-597.34 214,-587.34 210.5,-597.34 217.5,-597.34"/>
+</g>
+<!-- takeOrdered&#45;&gt;filterTop -->
+<g id="edge23" class="edge">
+<title>takeOrdered-&gt;filterTop</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M198.78,-549.6C186.22,-535.4 168.21,-515.05 153.91,-498.89"/>
+<polygon fill="black" stroke="black" points="156.66,-496.72 147.41,-491.55 151.42,-501.35 156.66,-496.72"/>
+</g>
+<!-- takeOrdered&#45;&gt;filterTop2 -->
+<g id="edge24" class="edge">
+<title>takeOrdered-&gt;filterTop2</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M230.87,-549.6C244.92,-535.27 265.12,-514.67 281.04,-498.45"/>
+<polygon fill="black" stroke="black" points="283.36,-501.08 287.86,-491.49 278.36,-496.18 283.36,-501.08"/>
+</g>
+<!-- mapStatusKey -->
+<g id="node8" class="node">
+<title>mapStatusKey</title>
+<polygon fill="lightblue" stroke="black" points="184.85,-417 61.15,-417 61.15,-381 184.85,-381 184.85,-417"/>
+<text xml:space="preserve" text-anchor="middle" x="123" y="-394.8" font-family="Times,serif" font-size="14.00">map((url,status), 1)</text>
+</g>
+<!-- filterTop&#45;&gt;mapStatusKey -->
+<g id="edge7" class="edge">
+<title>filterTop-&gt;mapStatusKey</title>
+<path fill="none" stroke="black" d="M129.06,-453.81C128.2,-446.14 127.16,-436.89 126.18,-428.24"/>
+<polygon fill="black" stroke="black" points="129.69,-428.08 125.09,-418.53 122.73,-428.86 129.69,-428.08"/>
+</g>
+<!-- reduceByKeyStatus -->
+<g id="node9" class="node">
+<title>reduceByKeyStatus</title>
+<polygon fill="lightblue" stroke="black" points="174.09,-344 63.91,-344 63.91,-308 174.09,-308 174.09,-344"/>
+<text xml:space="preserve" text-anchor="middle" x="119" y="-321.8" font-family="Times,serif" font-size="14.00">reduceByKey(+)</text>
+</g>
+<!-- mapStatusKey&#45;&gt;reduceByKeyStatus -->
+<g id="edge8" class="edge">
+<title>mapStatusKey-&gt;reduceByKeyStatus</title>
+<path fill="none" stroke="black" d="M122.03,-380.81C121.6,-373.14 121.08,-363.89 120.59,-355.24"/>
+<polygon fill="black" stroke="black" points="124.1,-355.33 120.04,-345.54 117.11,-355.72 124.1,-355.33"/>
+</g>
+<!-- mapToURL -->
+<g id="node10" class="node">
+<title>mapToURL</title>
+<polygon fill="lightblue" stroke="black" points="190.9,-271 43.1,-271 43.1,-235 190.9,-235 190.9,-271"/>
+<text xml:space="preserve" text-anchor="middle" x="117" y="-248.8" font-family="Times,serif" font-size="14.00">map(url, (status,count))</text>
+</g>
+<!-- reduceByKeyStatus&#45;&gt;mapToURL -->
+<g id="edge9" class="edge">
+<title>reduceByKeyStatus-&gt;mapToURL</title>
+<path fill="none" stroke="black" d="M118.52,-307.81C118.3,-300.14 118.04,-290.89 117.8,-282.24"/>
+<polygon fill="black" stroke="black" points="121.3,-282.44 117.52,-272.54 114.31,-282.64 121.3,-282.44"/>
+</g>
+<!-- groupByKeyStatus -->
+<g id="node11" class="node">
+<title>groupByKeyStatus</title>
+<polygon fill="lightblue" stroke="black" points="165.82,-198 68.18,-198 68.18,-162 165.82,-162 165.82,-198"/>
+<text xml:space="preserve" text-anchor="middle" x="117" y="-175.8" font-family="Times,serif" font-size="14.00">groupByKey()</text>
+</g>
+<!-- mapToURL&#45;&gt;groupByKeyStatus -->
+<g id="edge10" class="edge">
+<title>mapToURL-&gt;groupByKeyStatus</title>
+<path fill="none" stroke="black" d="M117,-234.81C117,-227.23 117,-218.1 117,-209.54"/>
+<polygon fill="black" stroke="black" points="120.5,-209.54 117,-199.54 113.5,-209.54 120.5,-209.54"/>
+</g>
+<!-- mapValuesStatus -->
+<g id="node12" class="node">
+<title>mapValuesStatus</title>
+<polygon fill="lightblue" stroke="black" points="171.65,-125 62.35,-125 62.35,-89 171.65,-89 171.65,-125"/>
+<text xml:space="preserve" text-anchor="middle" x="117" y="-102.8" font-family="Times,serif" font-size="14.00">mapValues(dict)</text>
+</g>
+<!-- groupByKeyStatus&#45;&gt;mapValuesStatus -->
+<g id="edge11" class="edge">
+<title>groupByKeyStatus-&gt;mapValuesStatus</title>
+<path fill="none" stroke="black" d="M117,-161.81C117,-154.23 117,-145.1 117,-136.54"/>
+<polygon fill="black" stroke="black" points="120.5,-136.54 117,-126.54 113.5,-136.54 120.5,-136.54"/>
+</g>
+<!-- collectStatus -->
+<g id="node13" class="node">
+<title>collectStatus</title>
+<polygon fill="lightblue" stroke="black" points="148.32,-52 85.68,-52 85.68,-16 148.32,-16 148.32,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="117" y="-29.8" font-family="Times,serif" font-size="14.00">collect()</text>
+</g>
+<!-- mapValuesStatus&#45;&gt;collectStatus -->
+<g id="edge12" class="edge">
+<title>mapValuesStatus-&gt;collectStatus</title>
+<path fill="none" stroke="black" d="M117,-88.81C117,-81.23 117,-72.1 117,-63.54"/>
+<polygon fill="black" stroke="black" points="120.5,-63.54 117,-53.54 113.5,-63.54 120.5,-63.54"/>
+</g>
+<!-- mapDateKey -->
+<g id="node15" class="node">
+<title>mapDateKey</title>
+<polygon fill="lightblue" stroke="black" points="364.56,-417 249.44,-417 249.44,-381 364.56,-381 364.56,-417"/>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-394.8" font-family="Times,serif" font-size="14.00">map((url,date), 1)</text>
+</g>
+<!-- filterTop2&#45;&gt;mapDateKey -->
+<g id="edge14" class="edge">
+<title>filterTop2-&gt;mapDateKey</title>
+<path fill="none" stroke="black" d="M306.24,-453.81C306.35,-446.23 306.48,-437.1 306.6,-428.54"/>
+<polygon fill="black" stroke="black" points="310.1,-428.59 306.74,-418.54 303.1,-428.49 310.1,-428.59"/>
+</g>
+<!-- reduceByKeyDate -->
+<g id="node16" class="node">
+<title>reduceByKeyDate</title>
+<polygon fill="lightblue" stroke="black" points="362.09,-344 251.91,-344 251.91,-308 362.09,-308 362.09,-344"/>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-321.8" font-family="Times,serif" font-size="14.00">reduceByKey(+)</text>
+</g>
+<!-- mapDateKey&#45;&gt;reduceByKeyDate -->
+<g id="edge15" class="edge">
+<title>mapDateKey-&gt;reduceByKeyDate</title>
+<path fill="none" stroke="black" d="M307,-380.81C307,-373.23 307,-364.1 307,-355.54"/>
+<polygon fill="black" stroke="black" points="310.5,-355.54 307,-345.54 303.5,-355.54 310.5,-355.54"/>
+</g>
+<!-- mapToURL2 -->
+<g id="node17" class="node">
+<title>mapToURL2</title>
+<polygon fill="lightblue" stroke="black" points="376.61,-271 237.39,-271 237.39,-235 376.61,-235 376.61,-271"/>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-248.8" font-family="Times,serif" font-size="14.00">map(url, (date,count))</text>
+</g>
+<!-- reduceByKeyDate&#45;&gt;mapToURL2 -->
+<g id="edge16" class="edge">
+<title>reduceByKeyDate-&gt;mapToURL2</title>
+<path fill="none" stroke="black" d="M307,-307.81C307,-300.23 307,-291.1 307,-282.54"/>
+<polygon fill="black" stroke="black" points="310.5,-282.54 307,-272.54 303.5,-282.54 310.5,-282.54"/>
+</g>
+<!-- groupByKeyDate -->
+<g id="node18" class="node">
+<title>groupByKeyDate</title>
+<polygon fill="lightblue" stroke="black" points="355.82,-198 258.18,-198 258.18,-162 355.82,-162 355.82,-198"/>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-175.8" font-family="Times,serif" font-size="14.00">groupByKey()</text>
+</g>
+<!-- mapToURL2&#45;&gt;groupByKeyDate -->
+<g id="edge17" class="edge">
+<title>mapToURL2-&gt;groupByKeyDate</title>
+<path fill="none" stroke="black" d="M307,-234.81C307,-227.23 307,-218.1 307,-209.54"/>
+<polygon fill="black" stroke="black" points="310.5,-209.54 307,-199.54 303.5,-209.54 310.5,-209.54"/>
+</g>
+<!-- detectAnomalies -->
+<g id="node19" class="node">
+<title>detectAnomalies</title>
+<polygon fill="lightblue" stroke="black" points="400.74,-125 215.26,-125 215.26,-89 400.74,-89 400.74,-125"/>
+<text xml:space="preserve" text-anchor="middle" x="308" y="-102.8" font-family="Times,serif" font-size="14.00">mapValues(detect_anomalies)</text>
+</g>
+<!-- groupByKeyDate&#45;&gt;detectAnomalies -->
+<g id="edge18" class="edge">
+<title>groupByKeyDate-&gt;detectAnomalies</title>
+<path fill="none" stroke="black" d="M307.24,-161.81C307.35,-154.23 307.48,-145.1 307.6,-136.54"/>
+<polygon fill="black" stroke="black" points="311.1,-136.59 307.74,-126.54 304.1,-136.49 311.1,-136.59"/>
+</g>
+<!-- collectAnomalies -->
+<g id="node20" class="node">
+<title>collectAnomalies</title>
+<polygon fill="lightblue" stroke="black" points="339.32,-52 276.68,-52 276.68,-16 339.32,-16 339.32,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="308" y="-29.8" font-family="Times,serif" font-size="14.00">collect()</text>
+</g>
+<!-- detectAnomalies&#45;&gt;collectAnomalies -->
+<g id="edge19" class="edge">
+<title>detectAnomalies-&gt;collectAnomalies</title>
+<path fill="none" stroke="black" d="M308,-88.81C308,-81.23 308,-72.1 308,-63.54"/>
+<polygon fill="black" stroke="black" points="311.5,-63.54 308,-53.54 304.5,-63.54 311.5,-63.54"/>
+</g>
+</g>
+</svg>
