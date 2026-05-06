@@ -1,0 +1,9 @@
+{"timestamp":"2026-05-06T07:31:24.848302Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-05-06T07:31:24.853996Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/iceberg_to_clickhouse_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-05-06T07:31:25.075044Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/iceberg_to_clickhouse_dag.py","lineno":3,"logger":"py.warnings"}
+{"timestamp":"2026-05-06T07:31:25.150993Z","level":"info","event":"Stats instance was created in PID 7 but accessed in PID 151. Re-initializing.","logger":"airflow.stats","filename":"stats.py","lineno":57}
+{"timestamp":"2026-05-06T07:31:26.523916Z","level":"info","event":"Rebuilding mart_avg_price_per_km...","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:31:28.558193Z","level":"info","event":"Rebuilding mart_top_zones_by_weekday...","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:31:29.179663Z","level":"info","event":"Rebuilding mart_trip_duration_distribution...","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:31:32.478146Z","level":"info","event":"All marts rebuilt","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:31:32.494844Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}

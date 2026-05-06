@@ -1,0 +1,10 @@
+{"timestamp":"2026-05-06T07:30:41.742978Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-05-06T07:30:41.771488Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/iceberg_to_clickhouse_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-05-06T07:30:41.868425Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/iceberg_to_clickhouse_dag.py","lineno":3,"logger":"py.warnings"}
+{"timestamp":"2026-05-06T07:30:41.882927Z","level":"info","event":"Stats instance was created in PID 7 but accessed in PID 86. Re-initializing.","logger":"airflow.stats","filename":"stats.py","lineno":57}
+{"timestamp":"2026-05-06T07:30:43.081790Z","level":"info","event":"Loaded FileIO: pyiceberg.io.fsspec.FsspecFileIO","logger":"pyiceberg.io","filename":"__init__.py","lineno":350}
+{"timestamp":"2026-05-06T07:30:45.135515Z","level":"info","event":"Loaded FileIO: pyiceberg.io.fsspec.FsspecFileIO","logger":"pyiceberg.io","filename":"__init__.py","lineno":350}
+{"timestamp":"2026-05-06T07:30:45.705048Z","level":"info","event":"Current Iceberg snapshot: 1936068186737811958","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:30:45.705454Z","level":"info","event":"Last processed snapshot:  1936068186737811958","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:30:45.705717Z","level":"info","event":"Available snapshots: [7706575045950754816, 2599025114736211103, 5976927819324267796, 7586168770192457860, 1894000990723152842, 3489355870876641144, 7263748369507627327, 3607795410028847961, 1936068186737811958]","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:30:45.705551Z","level":"info","event":"Skipping task.","reason":"No new snapshot","logger":"task","filename":"task_runner.py","lineno":1137}

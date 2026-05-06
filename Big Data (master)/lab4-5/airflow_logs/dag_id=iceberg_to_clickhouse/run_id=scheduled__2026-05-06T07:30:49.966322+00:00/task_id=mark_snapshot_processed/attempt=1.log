@@ -1,0 +1,7 @@
+{"timestamp":"2026-05-06T07:31:33.788120Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-05-06T07:31:33.792663Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/iceberg_to_clickhouse_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-05-06T07:31:33.828715Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/iceberg_to_clickhouse_dag.py","lineno":3,"logger":"py.warnings"}
+{"timestamp":"2026-05-06T07:31:33.833329Z","level":"info","event":"Stats instance was created in PID 7 but accessed in PID 154. Re-initializing.","logger":"airflow.stats","filename":"stats.py","lineno":57}
+{"timestamp":"2026-05-06T07:31:33.887374Z","level":"info","event":"DEBUG: load_result = {'rows_added': 1000, 'current_snapshot_id': '3158970302084824812'}","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:31:34.053326Z","level":"info","event":"Snapshot 3158970302084824812 marked as processed (1000 rows)","logger":"task.stdout"}
+{"timestamp":"2026-05-06T07:31:34.054078Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":230}
