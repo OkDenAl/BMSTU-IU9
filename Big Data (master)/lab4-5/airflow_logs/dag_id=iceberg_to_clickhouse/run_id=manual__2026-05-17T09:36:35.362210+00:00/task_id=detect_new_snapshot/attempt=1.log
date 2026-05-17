@@ -1,0 +1,10 @@
+{"timestamp":"2026-05-17T09:36:35.640689Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-05-17T09:36:35.641023Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/iceberg_to_clickhouse_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-05-17T09:36:35.644703Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/iceberg_to_clickhouse_dag.py","lineno":3,"logger":"py.warnings"}
+{"timestamp":"2026-05-17T09:36:35.645753Z","level":"info","event":"Stats instance was created in PID 6 but accessed in PID 176. Re-initializing.","logger":"airflow.stats","filename":"stats.py","lineno":57}
+{"timestamp":"2026-05-17T09:36:35.792969Z","level":"info","event":"Loaded FileIO: pyiceberg.io.fsspec.FsspecFileIO","logger":"pyiceberg.io","filename":"__init__.py","lineno":350}
+{"timestamp":"2026-05-17T09:36:35.880641Z","level":"info","event":"Loaded FileIO: pyiceberg.io.fsspec.FsspecFileIO","logger":"pyiceberg.io","filename":"__init__.py","lineno":350}
+{"timestamp":"2026-05-17T09:36:35.895420Z","level":"info","event":"Current Iceberg snapshot: 8725668189274237372","logger":"task.stdout"}
+{"timestamp":"2026-05-17T09:36:35.895556Z","level":"info","event":"Last processed snapshot:  8725668189274237372","logger":"task.stdout"}
+{"timestamp":"2026-05-17T09:36:35.895618Z","level":"info","event":"Available snapshots: [4234332940983469289, 1314432298230721260, 4934129573742116390, 729983046361882339, 8725668189274237372]","logger":"task.stdout"}
+{"timestamp":"2026-05-17T09:36:35.895254Z","level":"info","event":"Skipping task.","reason":"No new snapshot","logger":"task","filename":"task_runner.py","lineno":1137}
